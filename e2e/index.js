@@ -1,5 +1,3 @@
-const fork = require('child_process').fork;
-
 module.exports = Object.assign(
     {
         before: (browser, done) => {
