@@ -43,19 +43,20 @@ const LoginPage = class extends Component {
         const registerSubmit = email && password ? (e) => { e.preventDefault(); this.props.register({ email, password }); } : null;
 
         return (
-            <div className="login-page">
+            <div data-test="login-page" className="login-page">
                 <div className="card card-2">
                     { isRegistering ? (
                         <form onSubmit={loginSubmit}>
                             <input
-                              type="email" placeholder="Email Address"
+                              data-test="registration-email" type="email" placeholder="Email Address"
                               onChange={e => this.setState({ email: safeParseEventValue(e) })}
                             />
                             <input
-                              type="password" placeholder="Password"
+                              data-test="registration-password" type="password" placeholder="Password"
                               onChange={e => this.setState({ password: safeParseEventValue(e) })}
                             />
                             <button
+                              data-test="registration-submit"
                               className="btn btn-primary" type="submit" disabled={!registerSubmit}
                               onClick={registerSubmit}
                             >
@@ -63,6 +64,7 @@ const LoginPage = class extends Component {
                             </button>
                             <div className="text-center">
                                 <button
+                                  data-test="toggle-login"
                                   onClick={toggleLogin} type="button" className="btn btn-link"
                                 >
                                     Already a member? Login
@@ -72,14 +74,16 @@ const LoginPage = class extends Component {
                     ) : (
                         <form onSubmit={loginSubmit}>
                             <input
+                              data-test="login-email"
                               type="email" placeholder="Email Address" onChange={e => this.setState({ email: safeParseEventValue(e) })}
                             />
                             <input
-                              type="password" placeholder="Password"
+                              data-test="login-password" type="password" placeholder="Password"
                               onChange={e => this.setState({ password: safeParseEventValue(e) })}
                             />
 
                             <button
+                              data-test="login-submit"
                               type="submit" className="btn btn-primary" disabled={!loginSubmit}
                               onClick={loginSubmit}
                             >
@@ -87,7 +91,7 @@ const LoginPage = class extends Component {
                             </button>
                             <div className="text-center">
                                 <button
-                                  onClick={toggleLogin} type="button"
+                                  data-test="toggle-login" onClick={toggleLogin} type="button"
                                   className="btn btn-link"
                                 >
                                 Not a member? Register
