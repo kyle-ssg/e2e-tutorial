@@ -1,6 +1,6 @@
 module.exports = () => ({
     'Registration - test page loads': function (browser) {
-        browser.url('http://localhost:8080')
+        browser.url('https://google.com')
             .waitForElementVisible('body') // page load
     },
 });
