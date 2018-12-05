@@ -35,7 +35,7 @@ const LoginPage = class extends Component {
         } = this;
 
         return (
-            <div className="confirm-email-page">
+            <div data-test="confirm-email-page" className="confirm-email-page">
                 <div className="card card-2">
                     {error ? (
                         <div className="alert alert-danger">
