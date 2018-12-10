@@ -2,7 +2,7 @@ const chromedriver = require('chromedriver');
 const seleniumServer = require('selenium-server');
 const os = require('os');
 
-const browserSize = 'window-size=1024-768';
+const browserSize = 'window-size=1024,768';
 
 module.exports = {
 
