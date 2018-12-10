@@ -1,4 +1,4 @@
-const { byTestID, gotoMailinator, getMailinatorMessage } = require('./util');
+const { byTestID, clickFirstMailinatorMessage, gotoMailinator, getMailinatorMessage } = require('./util');
 
 module.exports = (email, password) => ({
     'Registration - test page loads': function (browser) {
@@ -12,10 +12,8 @@ module.exports = (email, password) => ({
             .waitForElementVisible(byTestID('check-email-page')); // wait for confirm email page
     },
     'Registration - Confirm email': function (browser) {
-        gotoMailinator(browser, email); // click first mailinator email
-        browser.waitForElementVisible('#inboxpane table tr td:nth-child(3n)')
-            .click('#inboxpane table tr td:nth-child(3n)');
-
+        gotoMailinator(browser, email); // get the user's inbox
+        clickFirstMailinatorMessage(browser); // click first mailinator email
         getMailinatorMessage(browser) // get the message content
             .getAttribute('a[target="_other"]', 'href', // get the first anchor and go to that url
                 result => browser.url(result.value))
